@@ -34,4 +34,8 @@ export class Member {
         }    
         return false;
     }
+
+    printInfo(): string {
+        return `member name: ${this.name} has ${this.booksBorrowed.length} book(s): ${JSON.stringify(this.booksBorrowed)}`;
+    }
 }

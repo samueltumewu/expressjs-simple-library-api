@@ -2,9 +2,9 @@ import {v4 as uuidv4 } from 'uuid';
 
 export class Book {
     id: string;
-    title: string;
-    author: string;
-    year: string;
+    title!: string;
+    author!: string;
+    year!: string;
     quantity: number;
     borrowedByIdMembers: string[];
 
