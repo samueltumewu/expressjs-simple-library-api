@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { BaseDtoMemberResponse } from "../dto/baseDtoMemberResponse";
+import { baseDtoLibraryResponse } from "../dto/baseDtoLibraryResponse";
 import { BaseDtoResponse } from "../dto/baseDtoResponse";
 import { addMember } from "../service/memberService";
 
@@ -10,5 +10,5 @@ export const addMemberController = (req: Request, res: Response) => {
         return res.status(500).json(new BaseDtoResponse(false, 'check the request body!'))
     }
     const member = addMember(name, books);
-    res.json(new BaseDtoMemberResponse(member));
+    res.json(new baseDtoLibraryResponse(member));
 };
