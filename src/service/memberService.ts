@@ -16,7 +16,7 @@ export const addMember = (memberName: string, books: Book[] = []): Member|null =
             const toBeAddedBook = new Book(book.title, book.author, book.year, 1);
             toBeAddedBook.addBorrowerId(member.id);
             initBooks.push(toBeAddedBook);
-        } else {
+            } else {
             console.error("some books don't have title or author or year")
         }
     }
