@@ -3,18 +3,18 @@ import { Member } from "../models/member";
 
 let members: Member[] = [];
 
-export const addMember = (memberName: string, books: Book[] = []): Member|null => {
+export const addMember = (memberName: string, address: string, books: Book[] = []): Member|null => {
     if (typeof books !== 'object') {
         // TODO: add to global configuration
         console.error("error format books!");
         return null;
     }
     let initBooks: Book[] = [];
-    const member = new Member(memberName, initBooks);
+    const member = new Member(undefined, memberName, address, initBooks);
     for (const book of books) {
         if (book.title && book.author && book.year) {
             const toBeAddedBook = new Book(book.title, book.author, book.year, 1);
-            toBeAddedBook.addBorrowerId(member.id);
+            toBeAddedBook.addBorrowerId(member.MemberId);
             initBooks.push(toBeAddedBook);
             } else {
             console.error("some books don't have title or author or year")

@@ -4,9 +4,9 @@ import myDynamoDB from "../db/DynamoDb";
 
 export const healthcheckController = async (req: Request, res: Response) => {
     try {
-        const dynamoDBClient = new myDynamoDB().getClient();
+        const dynamoDBClient = myDynamoDB.getClient();
         const params = {
-            TableName: 'library_ember',
+            TableName: 'library_member',
             Key: {
                 MemberId: 'test123'
             }

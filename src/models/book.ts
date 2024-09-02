@@ -5,7 +5,7 @@ export class Book {
     title!: string;
     author!: string;
     year!: string;
-    quantity: number;
+    quantityAvailable: number;
     borrowedByIdMembers: string[];
 
     constructor(title: string, author: string, year: string, quantity: number = 1) {
@@ -14,16 +14,16 @@ export class Book {
         this.author = author;
         this.year = year;
         this.borrowedByIdMembers = [];
-        this.quantity = quantity;
+        this.quantityAvailable = quantity;
     }
 
     addBorrowerId(uuidMember: string): void {
-        this.quantity -= 1;
+        this.quantityAvailable -= 1;
         this.borrowedByIdMembers.push(uuidMember);
     }
 
     removeBorrowerId(uuidMember: string): void {
         this.borrowedByIdMembers = this.borrowedByIdMembers.filter(memberId => memberId !== uuidMember);
-        this.quantity += 1;
+        this.quantityAvailable += 1;
     }
 }

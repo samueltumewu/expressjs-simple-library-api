@@ -2,7 +2,7 @@ import AWS from 'aws-sdk';
 import dotenv from 'dotenv';
 import DbInterface from './DbInterface.js';
 
-export default class myDynamoDB implements DbInterface 
+class myDynamoDB implements DbInterface 
 {
     private dynamoDB: AWS.DynamoDB.DocumentClient;
     constructor() {
@@ -20,3 +20,6 @@ export default class myDynamoDB implements DbInterface
         return this.dynamoDB;        
     }   
 }
+
+// export object statically
+export default new myDynamoDB();
