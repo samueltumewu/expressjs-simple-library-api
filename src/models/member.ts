@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import { Book } from './book';
 
 export class Member {
@@ -7,11 +6,10 @@ export class Member {
     address: string;
     booksBorrowed: Book[]; 
 
-    constructor(memberId: string = uuidv4(), name: string, address: string, books: Book[] = []) {
+    constructor(memberId: string, name: string, address: string, books: Book[] = []) {
         this.MemberId = memberId;
         this.name = name;
         this.address = address;
-
         this.booksBorrowed = books;
     }
 
